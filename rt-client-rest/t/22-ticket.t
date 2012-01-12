@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 97;
+use Test::More tests => 112;
 use Test::Exception;
 
 use constant METHODS => (
@@ -179,5 +179,38 @@ lives_ok {
 ok(4 == $ticket->requestors, 'There are now 4 requestors');
 
 ok('ticket' eq $ticket->rt_type);
+
+# Test time parsing
+$ticket->due('Thu Jan 12 11:14:31 2012');
+my $dt = $ticket->due_datetime();
+is($dt->year, 2012);
+is($dt->month, 1);
+is($dt->day, 12);
+is($dt->hour, 11);
+is($dt->minute, 14);
+is($dt->second, 31);
+is($dt->time_zone->name, 'UTC');
+
+$dt = DateTime->new(
+    year => 1983,
+    month => 9,
+    day => 1,
+    hour => 1,
+    minute => 2,
+    second => 3,
+    time_zone => 'EST'
+);
+
+$dt=$ticket->due_datetime($dt);
+
+is($dt->year, 1983);
+is($dt->month, 9);
+is($dt->day, 1);
+is($dt->hour, 6);
+is($dt->minute, 2);
+is($dt->second, 3);
+is($dt->time_zone->name, 'UTC');
+
+is($ticket->due, 'Thu Sep 01 01:02:03 1983');
 
 # vim:ft=perl:

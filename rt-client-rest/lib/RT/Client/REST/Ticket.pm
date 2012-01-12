@@ -162,36 +162,42 @@ sub _attributes {{
         validation  => {
             type    => SCALAR,
         },
+        is_datetime     => 1,
     },
 
     starts          => {
         validation  => {
             type    => SCALAR|UNDEF,
         },
+        is_datetime     => 1,
     },
 
     started         => {
         validation  => {
             type    => SCALAR|UNDEF,
         },
+        is_datetime     => 1,
     },
 
     due             => {
         validation  => {
             type    => SCALAR|UNDEF,
         },
+        is_datetime     => 1,
     },
 
     resolved        => {
         validation  => {
             type    => SCALAR|UNDEF,
         },
+        is_datetime     => 1,
     },
 
     told            => {
         validation  => {
             type    => SCALAR|UNDEF,
         },
+        is_datetime     => 1,
     },
 
     time_estimated  => {
@@ -220,6 +226,7 @@ sub _attributes {{
             type    => SCALAR,
         },
         rest_name   => 'LastUpdated',
+        is_datetime     => 1,
     },
 }}
 
