@@ -320,6 +320,13 @@ and therefore the value cannot be changed..
 
 =back
 
+=head2 Attributes storing a time
+
+The attributes which store a time stamp have an additional accessor with the
+suffix C<_datetime> (eg., C<resolved_datetime>).  This allows you can get and
+set the stored value as a DateTime object.  Internally, it is converted into
+the date-time string which RT uses, which is assumed to be in UTC.
+
 =head1 DB METHODS
 
 For full explanation of these, please see B<"DB METHODS"> in
