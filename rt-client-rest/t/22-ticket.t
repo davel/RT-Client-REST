@@ -8,7 +8,7 @@ use constant METHODS => (
     'new', 'to_form', 'from_form', 'rt_type', 'comment', 'correspond',
     'attachments', 'transactions', 'take', 'untake', 'steal',
     
-    # attrubutes:
+    # attributes:
     'id', 'queue', 'owner', 'creator', 'subject', 'status', 'priority',
     'initial_priority', 'final_priority', 'requestors', 'cc', 'admin_cc',
     'created', 'starts', 'started', 'due', 'resolved', 'told',
