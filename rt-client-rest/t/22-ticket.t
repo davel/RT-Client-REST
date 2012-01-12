@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 112;
+use Test::More tests => 113;
 use Test::Exception;
 
 use constant METHODS => (
@@ -212,5 +212,9 @@ is($dt->second, 3);
 is($dt->time_zone->name, 'UTC');
 
 is($ticket->due, 'Thu Sep 01 01:02:03 1983');
+
+throws_ok {
+    $ticket->due_datetime(bless {}, 'foo');
+} 'RT::Client::REST::Object::InvalidValueException';
 
 # vim:ft=perl:
